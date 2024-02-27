@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct Car: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-#Preview {
-    Car()
+struct Car: Identifiable {
+    let id = UUID()
+    let title: String
+    let headline: String
+    let image: String
+    let gradientColors: [Color]
+    let description: String
+    let models: [String]
 }

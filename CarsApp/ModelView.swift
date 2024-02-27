@@ -8,11 +8,30 @@
 import SwiftUI
 
 struct ModelView: View {
+    //Properties
+    var car : Car
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GroupBox(){
+            DisclosureGroup("Car Models") {
+                ForEach(0 ..< car.models.count , id: \.self) { item in
+                    Divider()
+                    HStack{
+                        Image(systemName: "car")
+                        Text("Model \(item + 1) :")
+                        Spacer()
+                        Text(car.models[item])
+                            .foregroundStyle(car.gradientColors[0])
+                            .fontWeight(.bold)
+                        
+                    }
+                    .padding(.vertical , 3)
+                }
+            }// DisclosureGroup
+            .foregroundStyle(car.gradientColors[0])
+        }// GroupBox
     }
 }
 
 #Preview {
-    ModelView()
+    ModelView(car: carsData[0])
 }
